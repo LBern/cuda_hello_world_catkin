@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+REST=$@
+
+rosrun cuda_hello_world_catkin cuda_hello_world_catkin_cuda \
+    --alsologtostderr=1 \
+    --v=3 \
+    $REST
