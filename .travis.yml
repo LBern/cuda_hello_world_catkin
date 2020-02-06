@@ -37,6 +37,7 @@ before_install:
   - PATH=${CUDA_HOME}/bin:${PATH}
   # Setup ROS
   - sudo apt install -y software-properties-common
+  - curl http://repo.ros2.org/repos.key | sudo apt-key add -
   - sudo add-apt-repository "deb http://packages.ros.org/ros/ubuntu bionic main"
   - wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
   - sudo apt update -qq
