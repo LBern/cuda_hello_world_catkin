@@ -19,6 +19,7 @@ class HelloWorldNode {
   void shutdown();
 
  private:
+  void callCudaHelloWorld();
   ros::AsyncSpinner spinner_;
   const ros::NodeHandle& node_handle_;
   const ros::NodeHandle& node_handle_private_;

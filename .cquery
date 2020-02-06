@@ -9,3 +9,4 @@
 -I/usr/include/eigen3
 -I/opt/ros/melodic/include
 -I./include
+-I/usr/local/cuda/include/

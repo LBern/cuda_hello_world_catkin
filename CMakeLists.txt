@@ -16,14 +16,21 @@ if(COMPILER_SUPPORTS_CXX14)
 else()
  message(FATAL_ERROR "The compiler does not support C++14.")
 endif()
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+cuda_add_library(${PROJECT_NAME}_cuda_lib
+  src/hello-world.cu
+)
 cs_add_library(${PROJECT_NAME}_lib
   src/hello-world-node.cc
 )
 
-cs_add_executable(${PROJECT_NAME} app/cuda-hello-world-app.cc)
-target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_lib)
+#cs_add_executable(${PROJECT_NAME} app/cuda-hello-world-app.cc)
+cuda_add_executable(${PROJECT_NAME}_cuda app/cuda-hello-world-app.cc)
+
+#target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_lib)
+target_link_libraries(${PROJECT_NAME}_cuda ${PROJECT_NAME}_lib ${PROJECT_NAME}_cuda_lib ${CUDA_LIBRARIES})
 
 cs_install()
 cs_export()

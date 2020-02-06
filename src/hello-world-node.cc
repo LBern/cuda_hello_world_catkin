@@ -1,4 +1,5 @@
 #include "cuda_hello_world/hello-world-node.h"
+#include "cuda_hello_world/hello-world.h"
 
 #include <glog/logging.h>
 
@@ -11,8 +12,9 @@ HelloWorldNode::HelloWorldNode(
 }
 
 bool HelloWorldNode::run() {
-  LOG(INFO) << "Running CUDA Hello World example";
+  LOG(INFO) << "--- Running CUDA example ----------";
   spinner_.start();
+  callCudaHelloWorld();
   return true;
 }
 
@@ -21,9 +23,15 @@ const std::atomic<bool>& HelloWorldNode::shouldExit() const noexcept {
 }
 
 std::string HelloWorldNode::updateAndPrintStatistics() {
-  return "[CUDA_HELLO_WORLD]";
+  return "computing...";
 }
 
 void HelloWorldNode::shutdown() {}
+
+void HelloWorldNode::callCudaHelloWorld() {
+  std::string result = hello_world_cu();
+  LOG(INFO) << "CUDA result: " << result;
+  should_exit_.store(true);
+}
 
 }  // namespace cuda
