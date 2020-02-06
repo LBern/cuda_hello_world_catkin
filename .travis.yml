@@ -44,17 +44,19 @@ before_install:
   - sudo apt install ros-$ROS_VERSION-desktop-full --yes
   - sudo pip install requests
   - source /opt/ros/$ROS_VERSION/setup.bash
+  # Setup build dependencies.
+  - sudo apt install autotools-dev doxygen dh-autoreconf git libgtest-dev python-catkin-tools python-pip python-git python-setuptools --yes
   - sudo rosdep init
   - rosdep update
+  - echo ". /opt/ros/melodic/setup.bash" >> ~/.bashrc
+  - source ~/.bashrc
   # Setup ccache
-  - sudo apt-get install -y ccache
+  - sudo apt install -y ccache
   - export PATH="/usr/lib/ccache:$PATH"
   - ccache --max-size=10G
    # Install the continous integration scripts.
   - cd ~
   - git clone https://github.com/ethz-asl/continuous_integration.git
-  # Setup build dependencies.
-  - sudo apt-get install autotools-dev doxygen dh-autoreconf git libgtest-dev python-catkin-tools python-pip python-git python-setuptools --yes
 
 install:
     # Create a workspace.
