@@ -56,7 +56,7 @@ before_install:
 install:
     # Create a workspace.
   - mkdir -p $WORKSPACE/src
-  - cp -r $TRAVIS_MAPLAB_SOURCE_PATH $WORKSPACE/src
+  - cp -r $TRAVIS_SOURCE_PATH $WORKSPACE/src
 
 script:
   - cd $WORKSPACE
