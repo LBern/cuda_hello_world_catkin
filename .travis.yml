@@ -10,18 +10,17 @@ compiler:
   - gcc
 
 matrix:
-  global:
-    - ROS_VERSION=melodic
-    - UBUNTU_VERSION=ubuntu1804
-    - TRAVIS_SOURCE_PATH=$(pwd)
-    - NOSE_NOCAPTURE=1
-    - WORKSPACE=$HOME/workspace
   include:
     - name: CUDA 10
       env:
       - CUDA=10.1.105-1
       - CUDA_SHORT=10.1
       - UBUNTU_VERSION=ubuntu1804
+      - ROS_VERSION=melodic
+      - UBUNTU_VERSION=ubuntu1804
+      - TRAVIS_SOURCE_PATH=$(pwd)
+      - NOSE_NOCAPTURE=1
+      - WORKSPACE=$HOME/workspace
       dist: bionic
 
 before_install:
@@ -40,7 +39,7 @@ before_install:
   # Setup ROS
   - wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
   - sudo apt-get update -qq
-  - sudo apt install ros-$ROS_VERSION-desktop-full "ros-$ROS_VERSION-tf2-*" "ros-$ROS_VERSION-camera-info-manager*" --yes
+  - sudo apt install ros-$ROS_VERSION-desktop-full --yes
   - sudo pip install requests
   - source /opt/ros/$ROS_VERSION/setup.bash
   - sudo rosdep init
