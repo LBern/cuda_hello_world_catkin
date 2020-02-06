@@ -46,8 +46,7 @@ before_install:
   - source /opt/ros/$ROS_VERSION/setup.bash
   - sudo rosdep init
   - rosdep update
-  - source /opt/ros/$ROS_VERSION/setup.sh
-
+  - source /opt/ros/$ROS_VERSION/setup.bash
   # Setup ccache
   - sudo apt-get install -y ccache
   - export PATH="/usr/lib/ccache:$PATH"
