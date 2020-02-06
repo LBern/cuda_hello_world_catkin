@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8)
-project(cuda_hello_world)
+project(cuda_hello_world_catkin)
 set(CMAKE_CUDA_COMPILER  /usr/local/cuda/bin/nvcc)
 
 

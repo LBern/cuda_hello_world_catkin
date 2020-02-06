@@ -1,0 +1,11 @@
+# Driver
+/usr/bin/clang++-5.0
+
+# Language
+-xc++
+-std=c++14
+
+# Includes
+-I/usr/include/eigen3
+-I/opt/ros/melodic/include
+-I./include
