@@ -50,6 +50,9 @@ before_install:
   - sudo apt-get install -y ccache
   - export PATH="/usr/lib/ccache:$PATH"
   - ccache --max-size=10G
+   # Install the continous integration scripts.
+  - cd ~
+  - git clone https://github.com/ethz-asl/continuous_integration.git
   # Setup build dependencies.
   - sudo apt-get install autotools-dev doxygen dh-autoreconf git libgtest-dev python-catkin-tools python-pip python-git python-setuptools --yes
 
