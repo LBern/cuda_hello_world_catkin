@@ -21,7 +21,7 @@ const std::atomic<bool>& HelloWorldNode::shouldExit() const noexcept {
 }
 
 std::string HelloWorldNode::updateAndPrintStatistics() {
-  return "";
+  return "[CUDA_HELLO_WORLD]";
 }
 
 void HelloWorldNode::shutdown() {}
