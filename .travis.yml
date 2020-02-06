@@ -47,9 +47,6 @@ before_install:
   - rosdep update
   - source /opt/ros/$ROS_VERSION/setup.sh
 
-  - wget https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-linux.zip
-  - unzip ninja-linux.zip
-  - PATH=${PATH}:${PWD}
   # Setup ccache
   - sudo apt-get install -y ccache
   - export PATH="/usr/lib/ccache:$PATH"
@@ -64,11 +61,8 @@ install:
 
 script:
   - cd $WORKSPACE
-  - ~/continuous_integration/run_build.sh -r --no_catkinsimple -x=$WORKSPACE/src/
-cuda_hello_world_catkin/share/prepare-ci
+  - ~/continuous_integration/run_build.sh -r --no_catkinsimple -x=$WORKSPACE/src/cuda_hello_world_catkin/share/prepare-ci
 
 
 notification:
   - email: true
-
-
