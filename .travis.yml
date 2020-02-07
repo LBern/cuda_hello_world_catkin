@@ -45,7 +45,7 @@ before_install:
   - sudo pip install requests
   - source /opt/ros/$ROS_VERSION/setup.bash
   # Setup build dependencies.
-  - sudo apt install autotools-dev doxygen dh-autoreconf git libgtest-dev python-catkin-tools python-pip python-git python-setuptools --yes
+  - sudo apt install autotools-dev doxygen dh-autoreconf git libgtest-dev python-wstool python-catkin-tools python-pip python-git python-setuptools --yes
   - sudo rosdep init
   - rosdep update
   - echo ". /opt/ros/melodic/setup.bash" >> ~/.bashrc
