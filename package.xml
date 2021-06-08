@@ -11,4 +11,5 @@
 
   <depend>roscpp</depend>
   <depend>glog_catkin</depend>
+  <depend>gflags_catkin</depend>
 </package>

@@ -26,11 +26,17 @@ cs_add_library(${PROJECT_NAME}_lib
   src/hello-world-node.cc
 )
 
-#cs_add_executable(${PROJECT_NAME} app/cuda-hello-world-app.cc)
 cuda_add_executable(${PROJECT_NAME}_cuda app/cuda-hello-world-app.cc)
 
-#target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_lib)
 target_link_libraries(${PROJECT_NAME}_cuda ${PROJECT_NAME}_lib ${PROJECT_NAME}_cuda_lib ${CUDA_LIBRARIES})
+
+#############
+## TESTING ##
+#############
+
+# Sanity check.
+catkin_add_gtest(test_sanity_check test/sanity-check/sanity-check-test.cc)
+target_link_libraries(test_sanity_check ${PROJECT_NAME}_lib)
 
 cs_install()
 cs_export()
